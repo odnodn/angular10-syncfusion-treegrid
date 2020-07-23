@@ -1,0 +1,26 @@
+<hello name="{{ name }}"></hello>
+<p>
+  Start editing to see some magic happen :)
+</p>
+
+<ejs-treegrid [dataSource]='data' [treeColumnIndex]='1' [sortSettings]="sortSettings"
+                [allowFiltering]="true" [allowSorting]="true"
+                childMapping='subtasks' [allowPaging]="false" [pageSettings]='pageSettings'>
+<e-columns>
+  <e-column field='taskID' headerText='Task ID' textAlign='Right' width=20></e-column>
+  <e-column field='taskName' headerText='Task Name' textAlign='Left' width=100></e-column>
+  <!-- <e-column field='startDate' headerText='Start Date' textAlign='Right' format='yMd' width=90></e-column> -->
+  <e-column field='duration' headerText='Duration' textAlign='Right' width=80></e-column>
+</e-columns>
+</ejs-treegrid>
+
+<br>
+
+<ejs-treegrid [dataSource]='data2' [treeColumnIndex]='1' parentIdMapping='parentID' idMapping='TaskID' height=265 [allowPaging]="true">
+        <e-columns>
+            <e-column field='TaskID' headerText='Task ID' width='90' textAlign='Right'></e-column>
+            <e-column field='TaskName' headerText='Task Name' width='170'></e-column>
+            <e-column field='StartDate' headerText='Start Date' width='130' format="yMd" textAlign='Right'></e-column>
+            <e-column field='Duration' headerText='Duration' width='80' textAlign='Right'></e-column>
+        </e-columns>
+                </ejs-treegrid>
