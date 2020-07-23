@@ -24,3 +24,18 @@
             <e-column field='Duration' headerText='Duration' width='80' textAlign='Right'></e-column>
         </e-columns>
                 </ejs-treegrid>
+
+<br>
+
+<ejs-treegrid #treegrid [dataSource]='dataSpark' height='315' width='auto' childMapping='Children' [treeColumnIndex]='1' >
+        <e-columns>
+            <e-column field='EmpID' headerText='Employee ID' width='85' ></e-column>
+            <e-column field='Name' headerText='Name' width='95'></e-column>
+            <e-column field='DOB' headerText='DOB' width='85' format="yMd" textAlign='Right'></e-column>
+            <e-column  headerText='Tax per annum' width='90' textAlign='Center'>
+                <ng-template #template let-data>
+                    <ejs-sparkline id='treegridline{{data.EmployeeID}}' [dataSource]='getSparkLine(data.EmployeeID)' height='50px' width='150px' lineWidth='2' valueType='Numeric' fill='#3C78EF' (load)="sparkload($event)"></ejs-sparkline>
+                </ng-template>
+            </e-column>
+        </e-columns>
+    </ejs-treegrid>
